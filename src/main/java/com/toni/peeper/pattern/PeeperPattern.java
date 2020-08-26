@@ -12,7 +12,8 @@ public class PeeperPattern {
 
 	public static void main(String[] args) {
 //		testFactoryMethod();
-		testAbstractFactory();
+//		testAbstractFactory();
+		testBuilder();
 	}
 
 	private static void testFactoryMethod() {
@@ -28,5 +29,13 @@ public class PeeperPattern {
 		PaymentMethod paymentMethod = (PaymentMethod)abstractFactory2.create("DEBIT");
 		
 		System.out.println("Tarjeta de tipo: "+tarjeta.getCardType()+", con el método de pago: "+paymentMethod.doPayment());
+	}
+	
+	private static void testBuilder() {
+		com.toni.peeper.pattern.creational.builder.Card card = new com.toni.peeper.pattern.creational.builder.Card.CardBuilder("VISA", "00 0 0000 0 0 VISA").name("Toni").expires(2030).credit(true).build();
+		System.out.println(card);
+		
+		com.toni.peeper.pattern.creational.builder.Card card2 = new com.toni.peeper.pattern.creational.builder.Card.CardBuilder("MASTERCARD", "000 0 000 MASTERCARD").name("Antonio").expires(2028).credit(false).build();
+		System.out.println(card2);
 	}
 }
