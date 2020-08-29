@@ -17,7 +17,8 @@ public class PeeperPattern {
 //		testFactoryMethod();
 //		testAbstractFactory();
 //		testBuilder();
-		testPrototype();
+//		testPrototype();
+		testSingleton();
 	}
 
 	private static void testFactoryMethod() {
@@ -55,5 +56,12 @@ public class PeeperPattern {
 		} catch(CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private static void testSingleton() {
+		//com.toni.peeper.pattern.creational.singleton Card = new com.toni.peeper.pattern.creational.singleton.Card();  no se puede, es un constructor privado
+		
+		com.toni.peeper.pattern.creational.singleton.Card.getINSTANCE().setCardNumber("013413457345");
+		System.out.println(com.toni.peeper.pattern.creational.singleton.Card.getINSTANCE().getCardNumber());
 	}
 }
