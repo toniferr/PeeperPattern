@@ -7,13 +7,17 @@ import com.toni.peeper.pattern.creational.abstractfactory.PaymentMethod;
 import com.toni.peeper.pattern.creational.factorymethod.Payment;
 import com.toni.peeper.pattern.creational.factorymethod.PaymentFactory;
 import com.toni.peeper.pattern.creational.factorymethod.PaymentType;
+import com.toni.peeper.pattern.creational.prototype.PrototypeCard;
+import com.toni.peeper.pattern.creational.prototype.PrototypeFactory;
+import com.toni.peeper.pattern.creational.prototype.PrototypeFactory.CardType;
 
 public class PeeperPattern {
 
 	public static void main(String[] args) {
 //		testFactoryMethod();
 //		testAbstractFactory();
-		testBuilder();
+//		testBuilder();
+		testPrototype();
 	}
 
 	private static void testFactoryMethod() {
@@ -37,5 +41,19 @@ public class PeeperPattern {
 		
 		com.toni.peeper.pattern.creational.builder.Card card2 = new com.toni.peeper.pattern.creational.builder.Card.CardBuilder("MASTERCARD", "000 0 000 MASTERCARD").name("Antonio").expires(2028).credit(false).build();
 		System.out.println(card2);
+	}
+	
+	private static void testPrototype() {
+		PrototypeFactory.loadCard();
+		try {
+			PrototypeCard visa = PrototypeFactory.getInstance(CardType.VISA);
+			visa.getCard();
+
+			PrototypeCard amex = PrototypeFactory.getInstance(CardType.AMEX);
+			amex.getCard();
+			
+		} catch(CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
 	}
 }
