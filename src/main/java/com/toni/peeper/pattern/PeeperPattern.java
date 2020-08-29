@@ -14,13 +14,19 @@ import com.toni.peeper.pattern.creational.prototype.PrototypeFactory.CardType;
 public class PeeperPattern {
 
 	public static void main(String[] args) {
+		
+		
+		/********************CREACIONAL********************/
 //		testFactoryMethod();
 //		testAbstractFactory();
 //		testBuilder();
 //		testPrototype();
-		testSingleton();
+//		testSingleton();
+		/********************\/CREACIONAL*******************/
 	}
 
+	
+	/********************CREACIONAL********************/
 	private static void testFactoryMethod() {
 		Payment payment = PaymentFactory.buildPayment(PaymentType.DEBIT);
 		payment.doPayment();
@@ -64,4 +70,5 @@ public class PeeperPattern {
 		com.toni.peeper.pattern.creational.singleton.Card.getINSTANCE().setCardNumber("013413457345");
 		System.out.println(com.toni.peeper.pattern.creational.singleton.Card.getINSTANCE().getCardNumber());
 	}
+	/********************\/CREACIONAL*******************/
 }
