@@ -1,6 +1,10 @@
 package com.toni.peeper.pattern;
 
 import com.toni.peeper.pattern.behavioral.chainofresponsability.Tarjeta;
+import com.toni.peeper.pattern.behavioral.command.CreditCard;
+import com.toni.peeper.pattern.behavioral.command.CreditCardActivateCommand;
+import com.toni.peeper.pattern.behavioral.command.CreditCardDesactivateCommand;
+import com.toni.peeper.pattern.behavioral.command.CreditCardInvoker;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -27,7 +31,8 @@ public class PeeperPattern {
 		
 		
 		/********************COMPORTAMIENTO********************/
-		testChainOfResponsability(1000);
+//		testChainOfResponsability(1000);
+		testCommand();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -83,6 +88,21 @@ public class PeeperPattern {
 	private static void testChainOfResponsability(int loan) {
 		Tarjeta tarjeta = new Tarjeta();
 		tarjeta.creditCardRequest(loan);
+	}
+	
+	private static void testCommand() {
+		CreditCard creditCard = new CreditCard();
+		CreditCard creditCardDesactivate = new CreditCard();
+		
+		CreditCardInvoker invoker = new CreditCardInvoker();
+		
+		invoker.setCommand(new CreditCardActivateCommand(creditCard));
+		invoker.run();
+		System.out.println("---------------------");
+		
+		invoker.setCommand(new CreditCardDesactivateCommand(creditCardDesactivate));
+		invoker.run();
+		
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
