@@ -1,5 +1,6 @@
 package com.toni.peeper.pattern;
 
+import com.toni.peeper.pattern.behavioral.chainofresponsability.Tarjeta;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -23,6 +24,11 @@ public class PeeperPattern {
 //		testPrototype();
 //		testSingleton();
 		/********************\/CREACIONAL*******************/
+		
+		
+		/********************COMPORTAMIENTO********************/
+		testChainOfResponsability(1000);
+		/********************\/COMPORTAMIENTO*******************/
 	}
 
 	
@@ -39,7 +45,7 @@ public class PeeperPattern {
 		AbstractFactory abstractFactory2 = FactoryProvider.getFactory("PaymentMethod");
 		PaymentMethod paymentMethod = (PaymentMethod)abstractFactory2.create("DEBIT");
 		
-		System.out.println("Tarjeta de tipo: "+tarjeta.getCardType()+", con el método de pago: "+paymentMethod.doPayment());
+		System.out.println("Tarjeta de tipo: "+tarjeta.getCardType()+", con el mï¿½todo de pago: "+paymentMethod.doPayment());
 	}
 	
 	private static void testBuilder() {
@@ -71,4 +77,12 @@ public class PeeperPattern {
 		System.out.println(com.toni.peeper.pattern.creational.singleton.Card.getINSTANCE().getCardNumber());
 	}
 	/********************\/CREACIONAL*******************/
+	
+	
+	/********************COMPORTAMIENTO********************/
+	private static void testChainOfResponsability(int loan) {
+		Tarjeta tarjeta = new Tarjeta();
+		tarjeta.creditCardRequest(loan);
+	}
+	/********************\/COMPORTAMIENTO*******************/
 }
