@@ -5,6 +5,8 @@ import com.toni.peeper.pattern.behavioral.command.CreditCard;
 import com.toni.peeper.pattern.behavioral.command.CreditCardActivateCommand;
 import com.toni.peeper.pattern.behavioral.command.CreditCardDesactivateCommand;
 import com.toni.peeper.pattern.behavioral.command.CreditCardInvoker;
+import com.toni.peeper.pattern.behavioral.iterator.CardList;
+import com.toni.peeper.pattern.behavioral.iterator.Iterator;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -32,7 +34,8 @@ public class PeeperPattern {
 		
 		/********************COMPORTAMIENTO********************/
 //		testChainOfResponsability(1000);
-		testCommand();
+//		testCommand();
+		testIterator();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -103,6 +106,23 @@ public class PeeperPattern {
 		invoker.setCommand(new CreditCardDesactivateCommand(creditCardDesactivate));
 		invoker.run();
 		
+	}
+	
+	private static void testIterator() {
+		com.toni.peeper.pattern.behavioral.iterator.Card[] cards = new com.toni.peeper.pattern.behavioral.iterator.Card[5];
+		cards[0] = new com.toni.peeper.pattern.behavioral.iterator.Card("VISA");
+		cards[1] = new com.toni.peeper.pattern.behavioral.iterator.Card("AMEX");
+		cards[2] = new com.toni.peeper.pattern.behavioral.iterator.Card("MASTER CARD");
+		cards[3] = new com.toni.peeper.pattern.behavioral.iterator.Card("GOOGLE CARD");
+		cards[4] = new com.toni.peeper.pattern.behavioral.iterator.Card("APPLE CARD");
+		
+		com.toni.peeper.pattern.behavioral.iterator.List lista = new CardList(cards);
+		Iterator iterator = lista.iterator();
+		
+		while (iterator.hasNext()) {
+			com.toni.peeper.pattern.behavioral.iterator.Card tarjeta = (com.toni.peeper.pattern.behavioral.iterator.Card) iterator.next();
+			System.out.println(tarjeta.getType());
+		}
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
