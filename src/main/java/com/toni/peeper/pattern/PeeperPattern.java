@@ -29,6 +29,11 @@ import com.toni.peeper.pattern.behavioral.strategy.Context;
 import com.toni.peeper.pattern.behavioral.strategy.LowerStrategyTextFormatter;
 import com.toni.peeper.pattern.behavioral.templatemethod.Paypal;
 import com.toni.peeper.pattern.behavioral.templatemethod.Visa;
+import com.toni.peeper.pattern.behavioral.visitor.BlackCreditCardVisitor;
+import com.toni.peeper.pattern.behavioral.visitor.ClassicCreditCardVisitor;
+import com.toni.peeper.pattern.behavioral.visitor.OfertaElement;
+import com.toni.peeper.pattern.behavioral.visitor.OfertaGasolina;
+import com.toni.peeper.pattern.behavioral.visitor.OfertaVuelos;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -64,7 +69,8 @@ public class PeeperPattern {
 //		testState();
 //		testInterpreter();
 //		testStrategy();
-		testTemplateMethod();
+//		testTemplateMethod();
+		testVisitor();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -260,6 +266,14 @@ public class PeeperPattern {
 		
 		payment = new Paypal();
 		payment.makePayment();
+	}
+	
+	private static void testVisitor() {
+		OfertaElement ofertaElement = new OfertaGasolina();
+		ofertaElement.accept(new BlackCreditCardVisitor());
+		
+		ofertaElement = new OfertaVuelos();
+		ofertaElement.accept(new ClassicCreditCardVisitor());
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
