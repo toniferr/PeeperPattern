@@ -27,6 +27,8 @@ import com.toni.peeper.pattern.behavioral.state.Vibracion;
 import com.toni.peeper.pattern.behavioral.strategy.CapitalStrategyTextFormatter;
 import com.toni.peeper.pattern.behavioral.strategy.Context;
 import com.toni.peeper.pattern.behavioral.strategy.LowerStrategyTextFormatter;
+import com.toni.peeper.pattern.behavioral.templatemethod.Paypal;
+import com.toni.peeper.pattern.behavioral.templatemethod.Visa;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -61,7 +63,8 @@ public class PeeperPattern {
 //		testObserver();
 //		testState();
 //		testInterpreter();
-		testStrategy();
+//		testStrategy();
+		testTemplateMethod();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -249,6 +252,14 @@ public class PeeperPattern {
 		context.publishText("Este teXTO SERÁ CONVERTIDO A MINÚSCULAS");
 		
 		
+	}
+	
+	private static void testTemplateMethod(){
+		com.toni.peeper.pattern.behavioral.templatemethod.Payment payment = new Visa();
+		payment.makePayment();
+		
+		payment = new Paypal();
+		payment.makePayment();
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
