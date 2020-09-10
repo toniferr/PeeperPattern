@@ -10,6 +10,9 @@ import com.toni.peeper.pattern.behavioral.iterator.Iterator;
 import com.toni.peeper.pattern.behavioral.mediator.ConcreteColleage1;
 import com.toni.peeper.pattern.behavioral.mediator.ConcreteColleage2;
 import com.toni.peeper.pattern.behavioral.mediator.ConcreteMediator;
+import com.toni.peeper.pattern.behavioral.memento.Article;
+import com.toni.peeper.pattern.behavioral.memento.ArticleMemento;
+import com.toni.peeper.pattern.behavioral.memento.Carataker;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -39,7 +42,8 @@ public class PeeperPattern {
 //		testChainOfResponsability(1000);
 //		testCommand();
 //		testIterator();
-		testMediator();
+//		testMediator();
+		testMemento();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -139,6 +143,37 @@ public class PeeperPattern {
 		
 		user1.send("Hola soy user1");
 		user2.send("Hola user1, soy user2");
+	}
+	
+	private static void testMemento() {
+		
+		Carataker carataker = new Carataker();
+		
+		Article article = new Article("Toni","texto de articulo de pelicula");
+		article.setText(article.getText()+" de Nolan");
+		System.out.println(article.getText());
+		
+		carataker.addMemento(article.createMemento());
+		article.setText(article.getText()+ "protagonizada por Guy Pearce");
+		System.out.println(article.getText());
+		
+		carataker.addMemento(article.createMemento());
+		
+		article.setText(article.getText()+ " y Leonardo DiCaprio");
+		System.out.println(article.getText());
+		
+		ArticleMemento memento1 = carataker.getmemento(0);
+		ArticleMemento memento2 = carataker.getmemento(1);
+		
+		article.restoreMemento(memento1);
+		System.out.println(article.getText());
+		
+		article.restoreMemento(memento2);
+		System.out.println(article.getText());
+		
+		article.setText(article.getText()+ "del año 2000");
+		System.out.println(article.getText());
+		
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
