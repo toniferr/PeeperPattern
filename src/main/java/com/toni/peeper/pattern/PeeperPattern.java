@@ -13,6 +13,10 @@ import com.toni.peeper.pattern.behavioral.mediator.ConcreteMediator;
 import com.toni.peeper.pattern.behavioral.memento.Article;
 import com.toni.peeper.pattern.behavioral.memento.ArticleMemento;
 import com.toni.peeper.pattern.behavioral.memento.Carataker;
+import com.toni.peeper.pattern.behavioral.observer.Coche;
+import com.toni.peeper.pattern.behavioral.observer.MessagePublisher;
+import com.toni.peeper.pattern.behavioral.observer.Peaton;
+import com.toni.peeper.pattern.behavioral.observer.Semaforo;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -43,7 +47,8 @@ public class PeeperPattern {
 //		testCommand();
 //		testIterator();
 //		testMediator();
-		testMemento();
+//		testMemento();
+		testObserver();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -174,6 +179,25 @@ public class PeeperPattern {
 		article.setText(article.getText()+ "del año 2000");
 		System.out.println(article.getText());
 		
+	}
+	
+	private static void testObserver() {
+		Coche coche = new Coche();
+		Peaton peaton = new Peaton();
+		
+		MessagePublisher messagePublisher = new MessagePublisher();
+		
+		messagePublisher.attach(coche);
+		messagePublisher.attach(peaton);
+		messagePublisher.notifyUpdate(new Semaforo("ROJO_COCHE"));
+		
+		try {
+			Thread.sleep(2000);
+		}catch(Exception e) {
+			
+		}
+		
+		messagePublisher.notifyUpdate(new Semaforo("VERDE_COCHE"));
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
