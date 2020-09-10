@@ -5,6 +5,10 @@ import com.toni.peeper.pattern.behavioral.command.CreditCard;
 import com.toni.peeper.pattern.behavioral.command.CreditCardActivateCommand;
 import com.toni.peeper.pattern.behavioral.command.CreditCardDesactivateCommand;
 import com.toni.peeper.pattern.behavioral.command.CreditCardInvoker;
+import com.toni.peeper.pattern.behavioral.interpreter.AndExpression;
+import com.toni.peeper.pattern.behavioral.interpreter.Expression;
+import com.toni.peeper.pattern.behavioral.interpreter.OrExpression;
+import com.toni.peeper.pattern.behavioral.interpreter.TerminalExpression;
 import com.toni.peeper.pattern.behavioral.iterator.CardList;
 import com.toni.peeper.pattern.behavioral.iterator.Iterator;
 import com.toni.peeper.pattern.behavioral.mediator.ConcreteColleage1;
@@ -52,7 +56,8 @@ public class PeeperPattern {
 //		testMediator();
 //		testMemento();
 //		testObserver();
-		testState();
+//		testState();
+		testInterpreter();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -216,6 +221,20 @@ public class PeeperPattern {
 		context.setState(new Silencio());
 		context.alert();
 		context.alert();
+	}
+	
+	private static void testInterpreter() {
+		Expression cero = new TerminalExpression("0");
+		Expression uno = new TerminalExpression("1");
+		
+		Expression contieneBoolean = new OrExpression(cero, uno);
+		Expression contieneUnoOCero = new AndExpression(cero, uno);
+		
+		System.out.println(contieneBoolean.interpret("cero"));
+		System.out.println(contieneBoolean.interpret("0"));
+		System.out.println(contieneUnoOCero.interpret("cero"));
+		System.out.println(contieneUnoOCero.interpret("0"));
+		System.out.println(contieneUnoOCero.interpret("0,1"));
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
