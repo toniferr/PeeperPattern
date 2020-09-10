@@ -24,6 +24,9 @@ import com.toni.peeper.pattern.behavioral.observer.Semaforo;
 import com.toni.peeper.pattern.behavioral.state.MobileAlertStateContext;
 import com.toni.peeper.pattern.behavioral.state.Silencio;
 import com.toni.peeper.pattern.behavioral.state.Vibracion;
+import com.toni.peeper.pattern.behavioral.strategy.CapitalStrategyTextFormatter;
+import com.toni.peeper.pattern.behavioral.strategy.Context;
+import com.toni.peeper.pattern.behavioral.strategy.LowerStrategyTextFormatter;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -57,7 +60,8 @@ public class PeeperPattern {
 //		testMemento();
 //		testObserver();
 //		testState();
-		testInterpreter();
+//		testInterpreter();
+		testStrategy();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -235,6 +239,16 @@ public class PeeperPattern {
 		System.out.println(contieneUnoOCero.interpret("cero"));
 		System.out.println(contieneUnoOCero.interpret("0"));
 		System.out.println(contieneUnoOCero.interpret("0,1"));
+	}
+	
+	private static void testStrategy() {
+		Context context = new Context(new CapitalStrategyTextFormatter());
+		context.publishText("Este texto será convertido a mayúsculas");
+		
+		context = new Context(new LowerStrategyTextFormatter());
+		context.publishText("Este teXTO SERÁ CONVERTIDO A MINÚSCULAS");
+		
+		
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
