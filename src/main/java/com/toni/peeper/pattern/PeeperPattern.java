@@ -17,6 +17,9 @@ import com.toni.peeper.pattern.behavioral.observer.Coche;
 import com.toni.peeper.pattern.behavioral.observer.MessagePublisher;
 import com.toni.peeper.pattern.behavioral.observer.Peaton;
 import com.toni.peeper.pattern.behavioral.observer.Semaforo;
+import com.toni.peeper.pattern.behavioral.state.MobileAlertStateContext;
+import com.toni.peeper.pattern.behavioral.state.Silencio;
+import com.toni.peeper.pattern.behavioral.state.Vibracion;
 import com.toni.peeper.pattern.creational.abstractfactory.AbstractFactory;
 import com.toni.peeper.pattern.creational.abstractfactory.Card;
 import com.toni.peeper.pattern.creational.abstractfactory.FactoryProvider;
@@ -48,7 +51,8 @@ public class PeeperPattern {
 //		testIterator();
 //		testMediator();
 //		testMemento();
-		testObserver();
+//		testObserver();
+		testState();
 		/********************\/COMPORTAMIENTO*******************/
 	}
 
@@ -198,6 +202,20 @@ public class PeeperPattern {
 		}
 		
 		messagePublisher.notifyUpdate(new Semaforo("VERDE_COCHE"));
+	}
+	
+	private static void testState() {
+		MobileAlertStateContext context = new MobileAlertStateContext();	
+		context.alert();
+		context.alert();
+		
+		context.setState(new Vibracion());
+		context.alert();
+		context.alert();
+		
+		context.setState(new Silencio());
+		context.alert();
+		context.alert();
 	}
 	/********************\/COMPORTAMIENTO*******************/
 }
