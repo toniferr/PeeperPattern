@@ -44,6 +44,9 @@ import com.toni.peeper.pattern.creational.factorymethod.PaymentType;
 import com.toni.peeper.pattern.creational.prototype.PrototypeCard;
 import com.toni.peeper.pattern.creational.prototype.PrototypeFactory;
 import com.toni.peeper.pattern.creational.prototype.PrototypeFactory.CardType;
+import com.toni.peeper.pattern.structural.bridge.ClassicCreditCard;
+import com.toni.peeper.pattern.structural.bridge.SecureCreditCard;
+import com.toni.peeper.pattern.structural.bridge.UnsecureCreditCard;
 
 public class PeeperPattern {
 
@@ -75,7 +78,8 @@ public class PeeperPattern {
 		
 		
 		/********************ESTRUCTURAL********************/
-		testAdapter();
+//		testAdapter();
+		testBridge();
 		/********************\/ESTRUCTURAL*******************/
 	}
 
@@ -289,6 +293,14 @@ public class PeeperPattern {
 		creditCard.pay("gold");
 		creditCard.pay("black");
 		creditCard.pay("silver");
+	}
+	
+	private static void testBridge() {
+		com.toni.peeper.pattern.structural.bridge.CreditCard classic = new ClassicCreditCard(new UnsecureCreditCard());
+		classic.realizarPago();
+		
+		classic = new ClassicCreditCard(new SecureCreditCard());
+		classic.realizarPago();
 	}
 	/********************\/ESTRUCTURAL*******************/
 }
