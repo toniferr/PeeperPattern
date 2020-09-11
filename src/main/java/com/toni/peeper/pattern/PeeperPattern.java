@@ -51,6 +51,11 @@ import com.toni.peeper.pattern.structural.composite.CuentaAhorro;
 import com.toni.peeper.pattern.structural.composite.CuentaComponent;
 import com.toni.peeper.pattern.structural.composite.CuentaComposite;
 import com.toni.peeper.pattern.structural.composite.CuentaCorriente;
+import com.toni.peeper.pattern.structural.decorator.Black;
+import com.toni.peeper.pattern.structural.decorator.Credit;
+import com.toni.peeper.pattern.structural.decorator.Gold;
+import com.toni.peeper.pattern.structural.decorator.InternationalPaymentDecorator;
+import com.toni.peeper.pattern.structural.decorator.SecureDecorator;
 
 public class PeeperPattern {
 
@@ -84,7 +89,8 @@ public class PeeperPattern {
 		/********************ESTRUCTURAL********************/
 //		testAdapter();
 //		testBridge();
-		testComposite();
+//		testComposite();
+		testDecorator();
 		/********************\/ESTRUCTURAL*******************/
 	}
 
@@ -318,6 +324,26 @@ public class PeeperPattern {
 		
 		cuentaComposite.showAccountName();
 		cuentaComposite.getAmount();
+	}
+	
+	private static void testDecorator() {
+		com.toni.peeper.pattern.structural.decorator.Credit gold = new Gold();
+		
+		Credit blackInternationalPayment = new Black();
+		blackInternationalPayment = new InternationalPaymentDecorator(blackInternationalPayment);
+		
+		Credit goldSecureInternational = new Gold();
+		goldSecureInternational = new InternationalPaymentDecorator(goldSecureInternational);
+		goldSecureInternational = new SecureDecorator(goldSecureInternational);
+		
+		System.out.println("---Tarjeta Gold con configuración---");
+		gold.showCredit();
+		
+		System.out.println("---Tarjeta black con configuración---");
+		blackInternationalPayment.showCredit();
+		
+		System.out.println("---Tarjeta Gold2 con configuración---");
+		goldSecureInternational.showCredit();
 	}
 	/********************\/ESTRUCTURAL*******************/
 }
