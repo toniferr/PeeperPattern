@@ -70,8 +70,13 @@ public class PeeperPattern {
 //		testInterpreter();
 //		testStrategy();
 //		testTemplateMethod();
-		testVisitor();
+//		testVisitor();
 		/********************\/COMPORTAMIENTO*******************/
+		
+		
+		/********************ESTRUCTURAL********************/
+		testAdapter();
+		/********************\/ESTRUCTURAL*******************/
 	}
 
 	
@@ -276,4 +281,14 @@ public class PeeperPattern {
 		ofertaElement.accept(new ClassicCreditCardVisitor());
 	}
 	/********************\/COMPORTAMIENTO*******************/
+	
+	/********************ESTRUCTURAL********************/
+	private static void testAdapter() {
+		com.toni.peeper.pattern.structural.adapter.CreditCard creditCard = new com.toni.peeper.pattern.structural.adapter.CreditCard();
+		creditCard.pay("classic");
+		creditCard.pay("gold");
+		creditCard.pay("black");
+		creditCard.pay("silver");
+	}
+	/********************\/ESTRUCTURAL*******************/
 }
