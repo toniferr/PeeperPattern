@@ -47,6 +47,10 @@ import com.toni.peeper.pattern.creational.prototype.PrototypeFactory.CardType;
 import com.toni.peeper.pattern.structural.bridge.ClassicCreditCard;
 import com.toni.peeper.pattern.structural.bridge.SecureCreditCard;
 import com.toni.peeper.pattern.structural.bridge.UnsecureCreditCard;
+import com.toni.peeper.pattern.structural.composite.CuentaAhorro;
+import com.toni.peeper.pattern.structural.composite.CuentaComponent;
+import com.toni.peeper.pattern.structural.composite.CuentaComposite;
+import com.toni.peeper.pattern.structural.composite.CuentaCorriente;
 
 public class PeeperPattern {
 
@@ -79,7 +83,8 @@ public class PeeperPattern {
 		
 		/********************ESTRUCTURAL********************/
 //		testAdapter();
-		testBridge();
+//		testBridge();
+		testComposite();
 		/********************\/ESTRUCTURAL*******************/
 	}
 
@@ -301,6 +306,18 @@ public class PeeperPattern {
 		
 		classic = new ClassicCreditCard(new SecureCreditCard());
 		classic.realizarPago();
+	}
+	
+	private static void testComposite() {
+		CuentaComponent cuentaCorriente = new CuentaCorriente(1000.0, "Toni");
+		CuentaComponent cuentaAhorro = new CuentaAhorro( 20000.0, "Toni");
+		
+		CuentaComposite cuentaComposite = new CuentaComposite();
+		cuentaComposite.addCuenta(cuentaCorriente);
+		cuentaComposite.addCuenta(cuentaAhorro);
+		
+		cuentaComposite.showAccountName();
+		cuentaComposite.getAmount();
 	}
 	/********************\/ESTRUCTURAL*******************/
 }
