@@ -61,6 +61,8 @@ import com.toni.peeper.pattern.structural.decorator.SecureDecorator;
 import com.toni.peeper.pattern.structural.facade.CreditMarketFacade;
 import com.toni.peeper.pattern.structural.flyweight.Enemy;
 import com.toni.peeper.pattern.structural.flyweight.EnemyFactory;
+import com.toni.peeper.pattern.structural.proxy.Internet;
+import com.toni.peeper.pattern.structural.proxy.Proxy;
 
 public class PeeperPattern {
 
@@ -97,7 +99,8 @@ public class PeeperPattern {
 //		testComposite();
 //		testDecorator();
 //		testFacade();
-		testFlyweight();
+//		testFlyweight();
+		testProxy();
 		/********************\/ESTRUCTURAL*******************/
 	}
 
@@ -382,5 +385,16 @@ public class PeeperPattern {
 	
 	private static String[] enemyType = {"Private", "Detective"};
 	private static String[] weapon = {"Fusil", "Revolver", "Pistola", "Metralleta", "Lanza Granadas"};
+	
+	private static void testProxy()	{
+		Internet internet = new Proxy();
+		try {
+			internet.connectTo("udemy.com");
+			internet.connectTo("twitter.com");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	/********************\/ESTRUCTURAL*******************/
 }
