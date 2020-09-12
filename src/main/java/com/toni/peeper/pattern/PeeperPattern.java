@@ -1,5 +1,7 @@
 package com.toni.peeper.pattern;
 
+import java.util.Random;
+
 import com.toni.peeper.pattern.behavioral.chainofresponsability.Tarjeta;
 import com.toni.peeper.pattern.behavioral.command.CreditCard;
 import com.toni.peeper.pattern.behavioral.command.CreditCardActivateCommand;
@@ -57,6 +59,8 @@ import com.toni.peeper.pattern.structural.decorator.Gold;
 import com.toni.peeper.pattern.structural.decorator.InternationalPaymentDecorator;
 import com.toni.peeper.pattern.structural.decorator.SecureDecorator;
 import com.toni.peeper.pattern.structural.facade.CreditMarketFacade;
+import com.toni.peeper.pattern.structural.flyweight.Enemy;
+import com.toni.peeper.pattern.structural.flyweight.EnemyFactory;
 
 public class PeeperPattern {
 
@@ -92,7 +96,8 @@ public class PeeperPattern {
 //		testBridge();
 //		testComposite();
 //		testDecorator();
-		testFacade();
+//		testFacade();
+		testFlyweight();
 		/********************\/ESTRUCTURAL*******************/
 	}
 
@@ -354,5 +359,28 @@ public class PeeperPattern {
 		creditMarket.showCreditSilver();
 		creditMarket.showCreditGold();
 	}
+	
+	private static void testFlyweight() {
+		for(int i=0; i<15; i++) {
+			Enemy enemy = EnemyFactory.getEnemy(getRandomEnemyType());
+			enemy.setWeapon(getRandomWeapon());
+			enemy.lifePoints();
+		}
+	}
+	
+	private static String getRandomEnemyType() {
+		Random r = new Random();
+		int randInt = r.nextInt(enemyType.length);
+		return enemyType[randInt];
+	}
+	
+	private static String getRandomWeapon() {
+		Random r = new Random();
+		int randInt = r.nextInt(weapon.length);
+		return weapon[randInt];
+	}
+	
+	private static String[] enemyType = {"Private", "Detective"};
+	private static String[] weapon = {"Fusil", "Revolver", "Pistola", "Metralleta", "Lanza Granadas"};
 	/********************\/ESTRUCTURAL*******************/
 }
