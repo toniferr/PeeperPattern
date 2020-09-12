@@ -56,6 +56,7 @@ import com.toni.peeper.pattern.structural.decorator.Credit;
 import com.toni.peeper.pattern.structural.decorator.Gold;
 import com.toni.peeper.pattern.structural.decorator.InternationalPaymentDecorator;
 import com.toni.peeper.pattern.structural.decorator.SecureDecorator;
+import com.toni.peeper.pattern.structural.facade.CreditMarketFacade;
 
 public class PeeperPattern {
 
@@ -90,7 +91,8 @@ public class PeeperPattern {
 //		testAdapter();
 //		testBridge();
 //		testComposite();
-		testDecorator();
+//		testDecorator();
+		testFacade();
 		/********************\/ESTRUCTURAL*******************/
 	}
 
@@ -344,6 +346,13 @@ public class PeeperPattern {
 		
 		System.out.println("---Tarjeta Gold2 con configuración---");
 		goldSecureInternational.showCredit();
+	}
+	
+	private static void testFacade() {
+		CreditMarketFacade creditMarket = new CreditMarketFacade();
+		creditMarket.showCreditBlack();
+		creditMarket.showCreditSilver();
+		creditMarket.showCreditGold();
 	}
 	/********************\/ESTRUCTURAL*******************/
 }
