@@ -21,7 +21,9 @@ import com.toni.peeper.pattern.structural.proxy.Internet;
 import com.toni.peeper.pattern.structural.proxy.Proxy;
 
 public class Structural {
-	/********************ESTRUCTURAL********************/
+	
+	
+	/********************ADAPTER********************/
 	static void testAdapter() {
 		com.toni.peeper.pattern.structural.adapter.CreditCard creditCard = new com.toni.peeper.pattern.structural.adapter.CreditCard();
 		creditCard.pay("classic");
@@ -30,6 +32,7 @@ public class Structural {
 		creditCard.pay("silver");
 	}
 	
+	/********************BRIDGE********************/
 	static void testBridge() {
 		com.toni.peeper.pattern.structural.bridge.CreditCard classic = new ClassicCreditCard(new UnsecureCreditCard());
 		classic.realizarPago();
@@ -38,6 +41,7 @@ public class Structural {
 		classic.realizarPago();
 	}
 	
+	/********************COMPOSITE********************/
 	static void testComposite() {
 		CuentaComponent cuentaCorriente = new CuentaCorriente(1000.0, "Toni");
 		CuentaComponent cuentaAhorro = new CuentaAhorro( 20000.0, "Toni");
@@ -50,6 +54,7 @@ public class Structural {
 		cuentaComposite.getAmount();
 	}
 	
+	/********************DECORATOR********************/
 	static void testDecorator() {
 		com.toni.peeper.pattern.structural.decorator.Credit gold = new Gold();
 		
@@ -70,6 +75,7 @@ public class Structural {
 		goldSecureInternational.showCredit();
 	}
 	
+	/********************FACADE********************/
 	static void testFacade() {
 		CreditMarketFacade creditMarket = new CreditMarketFacade();
 		creditMarket.showCreditBlack();
@@ -77,6 +83,7 @@ public class Structural {
 		creditMarket.showCreditGold();
 	}
 	
+	/********************FLYWEIGHT********************/
 	static void testFlyweight() {
 		for(int i=0; i<15; i++) {
 			Enemy enemy = EnemyFactory.getEnemy(getRandomEnemyType());
@@ -100,6 +107,7 @@ public class Structural {
 	private static String[] enemyType = {"Private", "Detective"};
 	private static String[] weapon = {"Fusil", "Revolver", "Pistola", "Metralleta", "Lanza Granadas"};
 	
+	/********************FPROXY********************/
 	static void testProxy()	{
 		Internet internet = new Proxy();
 		try {
@@ -109,6 +117,4 @@ public class Structural {
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	/********************\/ESTRUCTURAL*******************/
 }

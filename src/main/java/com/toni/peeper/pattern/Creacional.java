@@ -13,12 +13,13 @@ import com.toni.peeper.pattern.creational.prototype.PrototypeFactory.CardType;
 
 public class Creacional {
 	
-	/********************CREACIONAL********************/
+	/********************FACTORY METHOD********************/
 	static void testFactoryMethod() {
 		Payment payment = PaymentFactory.buildPayment(PaymentType.DEBIT);
 		payment.doPayment();
 	}
 	
+	/********************ABSTRACT FACTORY********************/
 	static void testAbstractFactory() {
 		AbstractFactory abstractFactory = FactoryProvider.getFactory("Card");
 		Card tarjeta = (Card)abstractFactory.create("VISA");
@@ -29,6 +30,7 @@ public class Creacional {
 		System.out.println("Tarjeta de tipo: "+tarjeta.getCardType()+", con el m�todo de pago: "+paymentMethod.doPayment());
 	}
 	
+	/********************BUILDER********************/
 	static void testBuilder() {
 		com.toni.peeper.pattern.creational.builder.Card card = new com.toni.peeper.pattern.creational.builder.Card.CardBuilder("VISA", "00 0 0000 0 0 VISA").name("Toni").expires(2030).credit(true).build();
 		System.out.println(card);
@@ -37,6 +39,7 @@ public class Creacional {
 		System.out.println(card2);
 	}
 	
+	/********************PROTOTYPE********************/
 	static void testPrototype() {
 		PrototypeFactory.loadCard();
 		try {
@@ -51,12 +54,12 @@ public class Creacional {
 		}
 	}
 	
+	/********************SINGLETON********************/
 	static void testSingleton() {
 		//com.toni.peeper.pattern.creational.singleton Card = new com.toni.peeper.pattern.creational.singleton.Card();  no se puede, es un constructor privado
 		
 		com.toni.peeper.pattern.creational.singleton.Card.getINSTANCE().setCardNumber("013413457345");
 		System.out.println(com.toni.peeper.pattern.creational.singleton.Card.getINSTANCE().getCardNumber());
 	}
-	/********************\/CREACIONAL*******************/
 
 }

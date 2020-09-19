@@ -37,12 +37,13 @@ import com.toni.peeper.pattern.behavioral.visitor.OfertaVuelos;
 
 public class Behavioral {
 
-	/********************COMPORTAMIENTO********************/
+	/********************CHAIN OF RESPONSABILITY********************/
 	static void testChainOfResponsability(int loan) {
 		Tarjeta tarjeta = new Tarjeta();
 		tarjeta.creditCardRequest(loan);
 	}
 	
+	/********************COMMAND********************/
 	static void testCommand() {
 		CreditCard creditCard = new CreditCard();
 		CreditCard creditCardDesactivate = new CreditCard();
@@ -58,6 +59,7 @@ public class Behavioral {
 		
 	}
 	
+	/********************ITERATOR********************/
 	static void testIterator() {
 		com.toni.peeper.pattern.behavioral.iterator.Card[] cards = new com.toni.peeper.pattern.behavioral.iterator.Card[5];
 		cards[0] = new com.toni.peeper.pattern.behavioral.iterator.Card("VISA");
@@ -75,6 +77,7 @@ public class Behavioral {
 		}
 	}
 	
+	/********************MEDIATOR********************/
 	static void testMediator() {
 		ConcreteMediator mediator = new ConcreteMediator();
 		ConcreteColleage1 user1 = new ConcreteColleage1(mediator);
@@ -87,6 +90,7 @@ public class Behavioral {
 		user2.send("Hola user1, soy user2");
 	}
 	
+	/********************MEMENTO********************/
 	static void testMemento() {
 		
 		Carataker carataker = new Carataker();
@@ -118,6 +122,7 @@ public class Behavioral {
 		
 	}
 	
+	/********************OBSERVER********************/
 	static void testObserver() {
 		Coche coche = new Coche();
 		Peaton peaton = new Peaton();
@@ -137,6 +142,7 @@ public class Behavioral {
 		messagePublisher.notifyUpdate(new Semaforo("VERDE_COCHE"));
 	}
 	
+	/********************STATE********************/
 	static void testState() {
 		MobileAlertStateContext context = new MobileAlertStateContext();	
 		context.alert();
@@ -151,6 +157,7 @@ public class Behavioral {
 		context.alert();
 	}
 	
+	/********************INTERPRETER********************/
 	static void testInterpreter() {
 		Expression cero = new TerminalExpression("0");
 		Expression uno = new TerminalExpression("1");
@@ -165,6 +172,7 @@ public class Behavioral {
 		System.out.println(contieneUnoOCero.interpret("0,1"));
 	}
 	
+	/********************STRATEGY********************/
 	static void testStrategy() {
 		Context context = new Context(new CapitalStrategyTextFormatter());
 		context.publishText("Este texto será convertido a mayúsculas");
@@ -175,6 +183,7 @@ public class Behavioral {
 		
 	}
 	
+	/********************TEMPLATE METHOD********************/
 	static void testTemplateMethod(){
 		com.toni.peeper.pattern.behavioral.templatemethod.Payment payment = new Visa();
 		payment.makePayment();
@@ -183,6 +192,7 @@ public class Behavioral {
 		payment.makePayment();
 	}
 	
+	/********************VISITOR********************/
 	static void testVisitor() {
 		OfertaElement ofertaElement = new OfertaGasolina();
 		ofertaElement.accept(new BlackCreditCardVisitor());
@@ -190,6 +200,5 @@ public class Behavioral {
 		ofertaElement = new OfertaVuelos();
 		ofertaElement.accept(new ClassicCreditCardVisitor());
 	}
-	/********************\/COMPORTAMIENTO*******************/
 	
 }
