@@ -1,4 +1,4 @@
-#PeeperPatter
+#PeeperPattern
 
 Proyecto enfocado en la práctica de los diseños de patrones con lenguaje JAVA.
  	
