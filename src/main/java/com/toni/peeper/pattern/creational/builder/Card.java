@@ -16,30 +16,9 @@ public class Card {
 		this.credit=builder.credit;
 	}
 	
-	public String getCardType() {
-		return cardType;
-	}
-
-	public String getNumber() {
-		return number;
-	}
-	
-	public String getName() {
-		return name;
-	}
-
-	public int getExpires() {
-		return expires;
-	}
-
-	public boolean isCredit() {
-		return credit;
-	}
-	
 	public String toString() {
 		return "Card: "+cardType+" "+number+" "+expires+" "+name+" "+credit;
 	}
-
 
 	public static class CardBuilder{
 		private String cardType;

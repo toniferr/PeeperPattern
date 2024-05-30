@@ -65,13 +65,13 @@ public class Structural {
 		goldSecureInternational = new InternationalPaymentDecorator(goldSecureInternational);
 		goldSecureInternational = new SecureDecorator(goldSecureInternational);
 		
-		System.out.println("---Tarjeta Gold con configuración---");
+		System.out.println("---Tarjeta Gold con configuraciÃ³n---");
 		gold.showCredit();
 		
-		System.out.println("---Tarjeta black con configuración---");
+		System.out.println("---Tarjeta black con configuraciÃ³n---");
 		blackInternationalPayment.showCredit();
 		
-		System.out.println("---Tarjeta Gold2 con configuración---");
+		System.out.println("---Tarjeta Gold2 con configuraciÃ³n---");
 		goldSecureInternational.showCredit();
 	}
 	

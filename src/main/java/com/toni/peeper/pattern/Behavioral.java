@@ -117,7 +117,7 @@ public class Behavioral {
 		article.restoreMemento(memento2);
 		System.out.println(article.getText());
 		
-		article.setText(article.getText()+ "del aÒo 2000");
+		article.setText(article.getText()+ "del a√±o 2000");
 		System.out.println(article.getText());
 		
 	}
@@ -175,10 +175,10 @@ public class Behavioral {
 	/********************STRATEGY********************/
 	static void testStrategy() {
 		Context context = new Context(new CapitalStrategyTextFormatter());
-		context.publishText("Este texto ser· convertido a may˙sculas");
+		context.publishText("Este texto ser√° convertido a may√∫sculas");
 		
 		context = new Context(new LowerStrategyTextFormatter());
-		context.publishText("Este teXTO SER¡ CONVERTIDO A MIN⁄SCULAS");
+		context.publishText("Este teXTO SER√Å CONVERTIDO A MIN√öSCULAS");
 		
 		
 	}

@@ -2,19 +2,17 @@ package com.toni.peeper.pattern.creational.singleton;
 
 public class Card {
 	
-	private static Card INSTANCE;
+	private static Card instance;
 	
 	private String cardNumber;
 	
-	private Card() {
-		
-	}
+	private Card() {}
 	
-	public synchronized static Card getINSTANCE() {
-		if (INSTANCE == null) {
-			INSTANCE = new Card();
+	public static Card getInstance() {
+		if (instance == null) {
+			instance = new Card();
 		}
-		return INSTANCE;
+		return instance;
 	}
 
 	public String getCardNumber() {

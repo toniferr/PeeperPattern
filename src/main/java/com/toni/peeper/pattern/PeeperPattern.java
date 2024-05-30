@@ -6,11 +6,11 @@ public class PeeperPattern {
 		
 		
 		/********************CREACIONAL********************/
+//		Creacional.testSingleton();
+//		Creacional.testBuilder();
 //		Creacional.testFactoryMethod();
 //		Creacional.testAbstractFactory();
-//		Creacional.testBuilder();
-//		Creacional.testPrototype();
-//		Creacional.testSingleton();
+		Creacional.testPrototype();
 		/********************\/CREACIONAL*******************/
 		
 		
@@ -36,7 +36,7 @@ public class PeeperPattern {
 //		Structural.testDecorator();
 //		Structural.testFacade();
 //		Structural.testFlyweight();
-		Structural.testProxy();
+//		Structural.testProxy();
 		/********************\/ESTRUCTURAL*******************/
 	}	
 	

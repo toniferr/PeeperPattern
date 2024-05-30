@@ -6,7 +6,7 @@ public class CreditCard implements Payment {
 	
 	public void pay(String type) {
 		if (type.equals("classic")) {
-			System.out.println("Tarjeta Classic: Pagando sin ningún tipo de Seguridad");
+			System.out.println("Tarjeta Classic: Pagando sin ningÃºn tipo de Seguridad");
 		} else if (type.equals("gold")) {
 			adapter = new Adapter("gold");
 			adapter.pay("gold");
