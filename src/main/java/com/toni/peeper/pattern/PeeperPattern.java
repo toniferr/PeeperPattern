@@ -3,16 +3,22 @@ package com.toni.peeper.pattern;
 public class PeeperPattern {
 
 	public static void main(String[] args) {
-		
-		
+
 		/********************CREACIONAL********************/
 //		Creacional.testSingleton();
 //		Creacional.testBuilder();
 //		Creacional.testFactoryMethod();
 //		Creacional.testAbstractFactory();
-		Creacional.testPrototype();
-		/********************\/CREACIONAL*******************/
-		
+//		Creacional.testPrototype();
+
+		/********************ESTRUCTURAL********************/
+//		Structural.testFacade();
+//		Structural.testDecorator();
+//		Structural.testAdapter();
+		Structural.testProxy();
+//		Structural.testBridge();
+//		Structural.testComposite();
+//		Structural.testFlyweight();
 		
 		/********************COMPORTAMIENTO********************/
 //		Behavioral.testChainOfResponsability(1000);
@@ -26,18 +32,7 @@ public class PeeperPattern {
 //		Behavioral.testStrategy();
 //		Behavioral.testTemplateMethod();
 //		Behavioral.testVisitor();
-		/********************\/COMPORTAMIENTO*******************/
-		
-		
-		/********************ESTRUCTURAL********************/
-//		Structural.testAdapter();
-//		Structural.testBridge();
-//		Structural.testComposite();
-//		Structural.testDecorator();
-//		Structural.testFacade();
-//		Structural.testFlyweight();
-//		Structural.testProxy();
-		/********************\/ESTRUCTURAL*******************/
+
 	}	
 	
 }

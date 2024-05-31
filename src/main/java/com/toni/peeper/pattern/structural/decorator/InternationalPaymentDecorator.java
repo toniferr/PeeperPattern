@@ -6,7 +6,6 @@ public class InternationalPaymentDecorator extends CreditDecorator{
 		super(decoratedCredit);
 	}
 
-
 	public void showCredit() {
 		decoratedCredit.showCredit();
 		configInternationalPayment();

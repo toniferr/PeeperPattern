@@ -6,7 +6,6 @@ public class SecureDecorator extends CreditDecorator{
 		super(decoratedCredit);
 	}
 
-
 	public void showCredit() {
 		decoratedCredit.showCredit();
 		configSecurePayment();
@@ -15,5 +14,4 @@ public class SecureDecorator extends CreditDecorator{
 	private void configSecurePayment() {
 		System.out.println("La tarjeta ha sido configurada para hacer pagos seguros");
 	}
-
 }

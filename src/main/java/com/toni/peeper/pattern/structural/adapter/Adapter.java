@@ -4,7 +4,6 @@ public class Adapter implements Payment {
 
 	Secure secureCreditCard;
 
-	
 	public Adapter(String type) {
 		if ("black".equals(type)) {
 			secureCreditCard = new BlackCreditCard();

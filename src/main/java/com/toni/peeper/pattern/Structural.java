@@ -21,15 +21,75 @@ import com.toni.peeper.pattern.structural.proxy.Internet;
 import com.toni.peeper.pattern.structural.proxy.Proxy;
 
 public class Structural {
-	
-	
+
+	/********************FACADE********************/
+	static void testFacade() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño FACADE");
+		System.out.println("######################################");
+
+		CreditMarketFacade creditMarket = new CreditMarketFacade();
+		creditMarket.showCreditBlack();
+		creditMarket.showCreditSilver();
+		creditMarket.showCreditGold();
+	}
+
+	/********************DECORATOR********************/
+	static void testDecorator() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño DECORATOR");
+		System.out.println("######################################");
+
+
+		System.out.println("Creo gold componente concreto");
+		com.toni.peeper.pattern.structural.decorator.Credit gold = new Gold();
+
+		System.out.println("Creo black international payment componente concreto");
+		com.toni.peeper.pattern.structural.decorator.Credit blackInternationalPayment = new Black();
+		blackInternationalPayment = new InternationalPaymentDecorator(blackInternationalPayment);
+
+		System.out.println("Creo gold secure payment componente concreto");
+		com.toni.peeper.pattern.structural.decorator.Credit goldSecureInternational = new Gold();
+		goldSecureInternational = new InternationalPaymentDecorator(goldSecureInternational);
+		goldSecureInternational = new SecureDecorator(goldSecureInternational);
+
+		System.out.println("---Tarjeta Gold sin decorator---");
+		gold.showCredit();
+
+		System.out.println("---Tarjeta black con decorator international payment---");
+		blackInternationalPayment.showCredit();
+
+		System.out.println("---Tarjeta Gold2 con decorator secure y decorator international payment---");
+		goldSecureInternational.showCredit();
+	}
+
 	/********************ADAPTER********************/
 	static void testAdapter() {
-		com.toni.peeper.pattern.structural.adapter.CreditCard creditCard = new com.toni.peeper.pattern.structural.adapter.CreditCard();
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño DECORATOR");
+		System.out.println("######################################");
+
+		com.toni.peeper.pattern.structural.adapter.CreditCard creditCard =
+				new com.toni.peeper.pattern.structural.adapter.CreditCard();
 		creditCard.pay("classic");
 		creditCard.pay("gold");
 		creditCard.pay("black");
 		creditCard.pay("silver");
+	}
+
+	/********************PROXY********************/
+	static void testProxy()	{
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño PROXY");
+		System.out.println("######################################");
+
+		Internet internet = new Proxy();
+		try {
+			internet.connectTo("udemy.com");
+			internet.connectTo("twitter.com");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	/********************BRIDGE********************/
@@ -52,35 +112,6 @@ public class Structural {
 		
 		cuentaComposite.showAccountName();
 		cuentaComposite.getAmount();
-	}
-	
-	/********************DECORATOR********************/
-	static void testDecorator() {
-		com.toni.peeper.pattern.structural.decorator.Credit gold = new Gold();
-		
-		Credit blackInternationalPayment = new Black();
-		blackInternationalPayment = new InternationalPaymentDecorator(blackInternationalPayment);
-		
-		Credit goldSecureInternational = new Gold();
-		goldSecureInternational = new InternationalPaymentDecorator(goldSecureInternational);
-		goldSecureInternational = new SecureDecorator(goldSecureInternational);
-		
-		System.out.println("---Tarjeta Gold con configuración---");
-		gold.showCredit();
-		
-		System.out.println("---Tarjeta black con configuración---");
-		blackInternationalPayment.showCredit();
-		
-		System.out.println("---Tarjeta Gold2 con configuración---");
-		goldSecureInternational.showCredit();
-	}
-	
-	/********************FACADE********************/
-	static void testFacade() {
-		CreditMarketFacade creditMarket = new CreditMarketFacade();
-		creditMarket.showCreditBlack();
-		creditMarket.showCreditSilver();
-		creditMarket.showCreditGold();
 	}
 	
 	/********************FLYWEIGHT********************/
@@ -106,15 +137,5 @@ public class Structural {
 	
 	private static String[] enemyType = {"Private", "Detective"};
 	private static String[] weapon = {"Fusil", "Revolver", "Pistola", "Metralleta", "Lanza Granadas"};
-	
-	/********************FPROXY********************/
-	static void testProxy()	{
-		Internet internet = new Proxy();
-		try {
-			internet.connectTo("udemy.com");
-			internet.connectTo("twitter.com");
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
+
 }

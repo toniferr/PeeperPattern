@@ -19,6 +19,7 @@ public class Creacional {
 		System.out.println("######################################");
 		System.out.println("Patrón de diseño SINGLETON");
 		System.out.println("######################################");
+
 		System.out.println("Inicializo objeto card1 con instancia de Card");
 		com.toni.peeper.pattern.creational.singleton.Card card1 =  com.toni.peeper.pattern.creational.singleton.Card.getInstance();
 		System.out.println("Seteo numero de tarjeta 013413457345");
@@ -63,6 +64,7 @@ public class Creacional {
 		System.out.println("######################################");
 		System.out.println("Patrón de diseño FACTORY METHOD");
 		System.out.println("######################################");
+
 		System.out.println("Llamo a buildPayment del metodo factoria con tipo debito" +
 				" y devuelvo tipo payment(interfaz)");
 		Payment payment = PaymentFactory.buildPayment(PaymentType.DEBIT);

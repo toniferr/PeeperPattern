@@ -17,7 +17,7 @@ public class Proxy implements Internet{
 	
 	public void connectTo(String url) throws Exception {
 		if (bannedUrl.contains(url)) {
-			throw new Exception("URL bloqueada - Acceso Denegado");
+			throw new Exception("URL "+url+" bloqueada - Acceso Denegado");
 		} 
 		internet.connectTo(url);
 	}

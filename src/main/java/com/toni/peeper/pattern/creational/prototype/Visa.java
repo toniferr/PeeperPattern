@@ -20,6 +20,4 @@ public class Visa implements PrototypeCard{
 		System.out.println("Clonando tarjeta visa...");
 		return (Visa) super.clone();
 	}
-
-	
 }

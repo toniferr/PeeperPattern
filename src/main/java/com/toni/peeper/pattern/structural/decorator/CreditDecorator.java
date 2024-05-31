@@ -11,5 +11,4 @@ public class CreditDecorator implements Credit {
 	public void showCredit() {
 		decoratedCredit.showCredit();
 	}
-
 }
