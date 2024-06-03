@@ -4,9 +4,7 @@ public class Private implements Enemy {
 
 	private String weapon;
 	private final String LIFE;
-	
-	
-	
+
 	public Private() {
 		LIFE = "200";
 	}

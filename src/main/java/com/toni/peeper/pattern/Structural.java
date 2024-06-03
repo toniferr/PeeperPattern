@@ -94,6 +94,10 @@ public class Structural {
 	
 	/********************BRIDGE********************/
 	static void testBridge() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño PROXY");
+		System.out.println("######################################");
+
 		com.toni.peeper.pattern.structural.bridge.CreditCard classic = new ClassicCreditCard(new UnsecureCreditCard());
 		classic.realizarPago();
 		
@@ -103,23 +107,47 @@ public class Structural {
 	
 	/********************COMPOSITE********************/
 	static void testComposite() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño COMPOSITE");
+		System.out.println("######################################");
+
+
+		System.out.println("Crea dos cuentas, una corriente y otra de ahorro");
 		CuentaComponent cuentaCorriente = new CuentaCorriente(1000.0, "Toni");
 		CuentaComponent cuentaAhorro = new CuentaAhorro( 20000.0, "Toni");
-		
+
+
+		System.out.println("Crea la cuenta composite y añado las dos cuentas anteriores");
 		CuentaComposite cuentaComposite = new CuentaComposite();
 		cuentaComposite.addCuenta(cuentaCorriente);
 		cuentaComposite.addCuenta(cuentaAhorro);
-		
+
+
+		System.out.println("Muestra cuentas de composite");
 		cuentaComposite.showAccountName();
+
+
+		System.out.println("Muestra montante de dinero de cuentas de composite");
 		cuentaComposite.getAmount();
 	}
 	
 	/********************FLYWEIGHT********************/
 	static void testFlyweight() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño COMPOSITE");
+		System.out.println("######################################");
+
 		for(int i=0; i<15; i++) {
+			System.out.println("Se crea el enemigo");
 			Enemy enemy = EnemyFactory.getEnemy(getRandomEnemyType());
+
+			System.out.println("Se le crea arma al enemigo");
 			enemy.setWeapon(getRandomWeapon());
+
+			System.out.println("Puntos de vida del enemigo");
 			enemy.lifePoints();
+
+			System.out.println("-------------------------------");
 		}
 	}
 	

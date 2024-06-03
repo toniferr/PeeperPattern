@@ -37,6 +37,29 @@ import com.toni.peeper.pattern.behavioral.visitor.OfertaVuelos;
 
 public class Behavioral {
 
+	/********************OBSERVER********************/
+	static void testObserver() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño OBSERVER");
+		System.out.println("######################################");
+		
+		Coche coche = new Coche();
+		Peaton peaton = new Peaton();
+
+		MessagePublisher messagePublisher = new MessagePublisher();
+
+		messagePublisher.attach(coche);
+		messagePublisher.attach(peaton);
+		messagePublisher.notifyUpdate(new Semaforo("ROJO_COCHE"));
+
+		try {
+			Thread.sleep(2000);
+		}catch(Exception e) {
+
+		}
+		messagePublisher.notifyUpdate(new Semaforo("VERDE_COCHE"));
+	}
+
 	/********************CHAIN OF RESPONSABILITY********************/
 	static void testChainOfResponsability(int loan) {
 		Tarjeta tarjeta = new Tarjeta();
@@ -120,26 +143,6 @@ public class Behavioral {
 		article.setText(article.getText()+ "del año 2000");
 		System.out.println(article.getText());
 		
-	}
-	
-	/********************OBSERVER********************/
-	static void testObserver() {
-		Coche coche = new Coche();
-		Peaton peaton = new Peaton();
-		
-		MessagePublisher messagePublisher = new MessagePublisher();
-		
-		messagePublisher.attach(coche);
-		messagePublisher.attach(peaton);
-		messagePublisher.notifyUpdate(new Semaforo("ROJO_COCHE"));
-		
-		try {
-			Thread.sleep(2000);
-		}catch(Exception e) {
-			
-		}
-		
-		messagePublisher.notifyUpdate(new Semaforo("VERDE_COCHE"));
 	}
 	
 	/********************STATE********************/

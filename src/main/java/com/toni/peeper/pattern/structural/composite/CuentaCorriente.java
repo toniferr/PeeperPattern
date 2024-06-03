@@ -2,12 +2,10 @@ package com.toni.peeper.pattern.structural.composite;
 
 public class CuentaCorriente implements CuentaComponent {
 
-
 	private Double amount;
 	
 	private String name;
-	
-	
+
 	public CuentaCorriente(Double amount, String name) {
 		this.amount = amount;
 		this.name = name;

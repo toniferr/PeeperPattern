@@ -15,18 +15,19 @@ public class PeeperPattern {
 //		Structural.testFacade();
 //		Structural.testDecorator();
 //		Structural.testAdapter();
-		Structural.testProxy();
+//		Structural.testProxy();
 //		Structural.testBridge();
 //		Structural.testComposite();
-//		Structural.testFlyweight();
+		Structural.testFlyweight();
 		
 		/********************COMPORTAMIENTO********************/
+//		Behavioral.testObserver();
+
 //		Behavioral.testChainOfResponsability(1000);
 //		Behavioral.testCommand();
 //		Behavioral.testIterator();
 //		Behavioral.testMediator();
 //		Behavioral.testMemento();
-//		Behavioral.testObserver();
 //		Behavioral.testState();
 //		Behavioral.testInterpreter();
 //		Behavioral.testStrategy();
