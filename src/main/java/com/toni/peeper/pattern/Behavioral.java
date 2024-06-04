@@ -60,30 +60,87 @@ public class Behavioral {
 		messagePublisher.notifyUpdate(new Semaforo("VERDE_COCHE"));
 	}
 
-	/********************CHAIN OF RESPONSABILITY********************/
-	static void testChainOfResponsability(int loan) {
-		Tarjeta tarjeta = new Tarjeta();
-		tarjeta.creditCardRequest(loan);
+	/********************VISITOR********************/
+	static void testVisitor() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño VISITOR");
+		System.out.println("######################################");
+
+		OfertaElement ofertaElement = new OfertaGasolina();
+		ofertaElement.accept(new BlackCreditCardVisitor());
+
+		ofertaElement = new OfertaVuelos();
+		ofertaElement.accept(new ClassicCreditCardVisitor());
 	}
-	
+
+    /********************STRATEGY********************/
+    static void testStrategy() {
+        System.out.println("######################################");
+        System.out.println("Patrón de diseño STRATEGY");
+        System.out.println("######################################");
+
+        Context context = new Context(new CapitalStrategyTextFormatter());
+        context.publishText("Este texto será convertido a mayúsculas");
+
+        context = new Context(new LowerStrategyTextFormatter());
+        context.publishText("Este teXTO SERÁ CONVERTIDO A MINÚSCULAS");
+    }
+
+	/********************TEMPLATE METHOD********************/
+	static void testTemplateMethod(){
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño TEMPLATE METHOD");
+		System.out.println("######################################");
+
+		com.toni.peeper.pattern.behavioral.templatemethod.Payment payment = new Visa();
+		payment.makePayment();
+
+		payment = new Paypal();
+		payment.makePayment();
+	}
+
 	/********************COMMAND********************/
 	static void testCommand() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño COMMAND");
+		System.out.println("######################################");
+
+		System.out.println("Creo creditcard1");
 		CreditCard creditCard = new CreditCard();
+		System.out.println("Creo credit card desactivada");
 		CreditCard creditCardDesactivate = new CreditCard();
-		
+		System.out.println("Creo credit car invoker");
 		CreditCardInvoker invoker = new CreditCardInvoker();
-		
+
+		System.out.println("setea credit car activada pasandole creditcard1");
 		invoker.setCommand(new CreditCardActivateCommand(creditCard));
+		System.out.println("run");
 		invoker.run();
 		System.out.println("---------------------");
-		
+		System.out.println("setea credit car desactivada pasandole creditcarddesactivada");
 		invoker.setCommand(new CreditCardDesactivateCommand(creditCardDesactivate));
 		invoker.run();
-		
+	}
+
+	/********************CHAIN OF RESPONSABILITY********************/
+	static void testChainOfResponsability(int loan) {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño CHAIN OF RESPONSABILITY");
+		System.out.println("######################################");
+
+		System.out.println("Se instancia la tarjeta");
+		Tarjeta tarjeta = new Tarjeta();
+
+		System.out.println("Con el crédito "+loan+" que tipo tarjeta corresponde?");
+		tarjeta.creditCardRequest(loan);
 	}
 	
 	/********************ITERATOR********************/
 	static void testIterator() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño ITERATOR");
+		System.out.println("######################################");
+
 		com.toni.peeper.pattern.behavioral.iterator.Card[] cards = new com.toni.peeper.pattern.behavioral.iterator.Card[5];
 		cards[0] = new com.toni.peeper.pattern.behavioral.iterator.Card("VISA");
 		cards[1] = new com.toni.peeper.pattern.behavioral.iterator.Card("AMEX");
@@ -102,6 +159,10 @@ public class Behavioral {
 	
 	/********************MEDIATOR********************/
 	static void testMediator() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño MEDIATOR");
+		System.out.println("######################################");
+
 		ConcreteMediator mediator = new ConcreteMediator();
 		ConcreteColleage1 user1 = new ConcreteColleage1(mediator);
 		ConcreteColleage2 user2 = new ConcreteColleage2(mediator);
@@ -115,6 +176,9 @@ public class Behavioral {
 	
 	/********************MEMENTO********************/
 	static void testMemento() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño MEMENTO");
+		System.out.println("######################################");
 		
 		Carataker carataker = new Carataker();
 		
@@ -123,7 +187,7 @@ public class Behavioral {
 		System.out.println(article.getText());
 		
 		carataker.addMemento(article.createMemento());
-		article.setText(article.getText()+ "protagonizada por Guy Pearce");
+		article.setText(article.getText()+ " protagonizada por Guy Pearce");
 		System.out.println(article.getText());
 		
 		carataker.addMemento(article.createMemento());
@@ -147,6 +211,10 @@ public class Behavioral {
 	
 	/********************STATE********************/
 	static void testState() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño STATE");
+		System.out.println("######################################");
+
 		MobileAlertStateContext context = new MobileAlertStateContext();	
 		context.alert();
 		context.alert();
@@ -162,6 +230,10 @@ public class Behavioral {
 	
 	/********************INTERPRETER********************/
 	static void testInterpreter() {
+		System.out.println("######################################");
+		System.out.println("Patrón de diseño INTERPRETER");
+		System.out.println("######################################");
+
 		Expression cero = new TerminalExpression("0");
 		Expression uno = new TerminalExpression("1");
 		
@@ -174,34 +246,4 @@ public class Behavioral {
 		System.out.println(contieneUnoOCero.interpret("0"));
 		System.out.println(contieneUnoOCero.interpret("0,1"));
 	}
-	
-	/********************STRATEGY********************/
-	static void testStrategy() {
-		Context context = new Context(new CapitalStrategyTextFormatter());
-		context.publishText("Este texto será convertido a mayúsculas");
-		
-		context = new Context(new LowerStrategyTextFormatter());
-		context.publishText("Este teXTO SERÁ CONVERTIDO A MINÚSCULAS");
-		
-		
-	}
-	
-	/********************TEMPLATE METHOD********************/
-	static void testTemplateMethod(){
-		com.toni.peeper.pattern.behavioral.templatemethod.Payment payment = new Visa();
-		payment.makePayment();
-		
-		payment = new Paypal();
-		payment.makePayment();
-	}
-	
-	/********************VISITOR********************/
-	static void testVisitor() {
-		OfertaElement ofertaElement = new OfertaGasolina();
-		ofertaElement.accept(new BlackCreditCardVisitor());
-		
-		ofertaElement = new OfertaVuelos();
-		ofertaElement.accept(new ClassicCreditCardVisitor());
-	}
-	
 }

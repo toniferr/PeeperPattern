@@ -12,6 +12,4 @@ public class CreditCardDesactivateCommand implements Command{
 		creditCard.desactivate();
 		creditCard.sendSMSNumberToCustomerDesactive();
 	}
-	
-	
 }

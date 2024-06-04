@@ -13,6 +13,4 @@ public class CreditCardActivateCommand implements Command{
 		creditCard.activate();
 		creditCard.sendSMSNumberToCustomerActive();
 	}
-	
-	
 }
