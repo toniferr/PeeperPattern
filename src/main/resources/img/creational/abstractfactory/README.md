@@ -3,7 +3,8 @@ Abstract Factory es un patrón de diseño creacional que nos permite producir fa
 
 ### Problema
 Imagina que estás creando un simulador de tienda de muebles. Tu código está compuesto por clases que representan lo siguiente:
-1. Una familia de productos relacionados, digamos: Silla + Sofá + Mesilla.
+1. 
+2. Una familia de productos relacionados, digamos: Silla + Sofá + Mesilla.
 2. Algunas variantes de esta familia. Por ejemplo, los productos Silla + Sofá + Mesilla están disponibles en estas variantes: Moderna, Victoriana, ArtDecó.
 
 Necesitamos una forma de crear objetos individuales de mobiliario para que combinen con otros objetos de la misma familia. Los clientes se enfadan bastante cuando reciben muebles que no combinan.
@@ -13,8 +14,6 @@ Además, no queremos cambiar el código existente al añadir al programa nuevos 
 ### Solución
 
 Lo primero que sugiere el patrón Abstract Factory es que declaremos de forma explícita interfaces para cada producto diferente de la familia de productos (por ejemplo, silla, sofá o mesilla). Después podemos hacer que todas las variantes de los productos sigan esas interfaces. Por ejemplo, todas las variantes de silla pueden implementar la interfaz Silla, así como todas las variantes de mesilla pueden implementar la interfaz Mesilla, y así sucesivamente.
-
-La jerarquía de la clase Silla
 
 El siguiente paso consiste en declarar la Fábrica abstracta: una interfaz con una lista de métodos de creación para todos los productos que son parte de la familia de productos (por ejemplo, crearSilla, crearSofá y crearMesilla). Estos métodos deben devolver productos abstractos representados por las interfaces que extrajimos previamente: Silla, Sofá, Mesilla, etc.
 
