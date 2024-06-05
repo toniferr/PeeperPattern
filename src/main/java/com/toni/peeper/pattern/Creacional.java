@@ -65,8 +65,7 @@ public class Creacional {
 		System.out.println("Patrón de diseño FACTORY METHOD");
 		System.out.println("######################################");
 
-		System.out.println("Llamo a buildPayment del metodo factoria con tipo debito" +
-				" y devuelvo tipo payment(interfaz)");
+		System.out.println("Inicializo interfaz con metodo del Factory tipo Debito");
 		Payment payment = PaymentFactory.buildPayment(PaymentType.DEBIT);
 		System.out.println("Llamo a doPayment override del objeto que implementa la interfaz");
 		payment.doPayment();
@@ -95,6 +94,7 @@ public class Creacional {
 		System.out.println("######################################");
 		System.out.println("Patrón de diseño PROTOTYPE");
 		System.out.println("######################################");
+		
 		PrototypeFactory.loadCard();
 		try {
 			PrototypeCard visa = PrototypeFactory.getInstance(CardType.VISA);

@@ -7,7 +7,7 @@ public class PeeperPattern {
 		/********************CREACIONAL********************/
 //		Creacional.testSingleton();
 //		Creacional.testBuilder();
-//		Creacional.testFactoryMethod();
+		Creacional.testFactoryMethod();
 //		Creacional.testAbstractFactory();
 //		Creacional.testPrototype();
 
@@ -31,7 +31,7 @@ public class PeeperPattern {
 //		Behavioral.testMediator();
 //		Behavioral.testMemento();
 //		Behavioral.testState();
-		Behavioral.testInterpreter();
+//		Behavioral.testInterpreter();
 
 	}	
 	
